@@ -1,0 +1,80 @@
+/* --------------------------------------------------
+
+		"L" - The WordPress Theme
+
+Theme Name: L
+Description: This theme is a simble WordPress theme made with Bootstrap v3.2.0.
+Theme URI: http://minerva.moe.in/new-blog-theme/
+Author: minerva @jupiter2107
+Author URI: http://minerva.moe.in/
+Version: 0.1.0.1
+License: 
+License URI: 
+-------------------------------------------------- */
+
+/* index.php */
+
+#search-box {
+	padding-top: 10px;
+	text-align: right;
+}
+
+.post {
+	padding-bottom: 30px;
+}
+
+div.p-thumbnail img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+	div.p-wrapper {
+		padding-top: 15px;
+	}
+}
+
+#navigation {
+	padding-top: 20px;
+}
+
+#navigation li {
+	font-size: 125%;
+}
+
+/* sidebar.php */
+
+#wp-calendar th,td {
+	text-align: center;
+}
+
+div#b-sub-archive {
+	padding-bottom: 11px;
+}
+
+div#b-sub-tag {
+	padding-bottom: 5px;
+}
+
+#tag-inner a {
+	padding: 3px 5px;
+	border: 1px solid #999999;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-o-border-radius: 3px;
+	-ms-border-radius: 3px;
+	text-decoration: none;
+    white-space: nowrap;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 90%;
+    line-height: 200%;
+}
+
+#tag-inner a:hover {
+	background-color: #e1e1e1 ;
+}
+
+/* single.php */
