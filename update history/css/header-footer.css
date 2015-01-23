@@ -1,16 +1,38 @@
 /* ---------------------------------------------
 		header-footer.css
-			for all pages
+		Blog Theme "L"
 --------------------------------------------- */
+
+/* header.php */
 
 body {
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
 
+/* banner.php */
+
+#b-logo {
+	text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+	#b-logo {
+		text-align: center;
+	}
+}
+
+#b-logo a {
+	text-decoration: none;
+}
+
+/* navbar.php */
+
 .navbar {
 	margin-bottom: 15px;
 }
+
+/* footer.php */
 
 #affiliate {
 	display: block;

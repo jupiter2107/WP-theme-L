@@ -6,6 +6,8 @@
 ?>
 
 <?php get_header(); ?>
+<?php get_template_part('banner', 'blog'); ?>
+<?php get_template_part('navbar'); ?>
 
       <div id="b-content" class="row">
         <div id="b-main" class="col-xs-12 col-sm-8 col-md-9">
@@ -63,7 +65,7 @@
             <!-- /.Post -->
           <?php endif; ?>
           
-        </div><!-- /.Main Row -->
+        </div><!-- /.B-Main -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

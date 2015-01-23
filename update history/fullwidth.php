@@ -10,9 +10,11 @@ Template Name: Full-width
 ?>
 
 <?php get_header(); ?>
+<?php get_template_part('banner', 'blog'); ?>
+<?php get_template_part('navbar'); ?>
 
       <div id="b-content" class="row">
-        <div id="b-main" class="col-xs-12 col-sm-12 col-md-12">
+        <div id="b-main" class="col-xs-12">
 
           <!-- Post -->
           <?php if ( have_posts() ) :
