@@ -1,12 +1,16 @@
 <?php
 /*
- * page.php
+Template Name: Banner-Notitle-Pagesidebar
+*/
+
+/*
+ * banner-notitle-pagesidebar.php
  * WP Theme "L"
  */
 ?>
 
 <?php get_header(); ?>
-<?php get_template_part('banner', 'blog'); ?>
+<?php get_template_part('banner'); ?>
 <?php get_template_part('navbar'); ?>
 
 <div id="b-content" class="row">
@@ -18,7 +22,6 @@
         <div class="row post">
           <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <div class="p-wrapper col-xs-12">
-              <h2 class="p-title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
               <div class="p-contents">
                 <?php the_content(); ?>
               </div>
@@ -39,5 +42,5 @@
           
   </div><!-- /.B-Main -->
 
-<?php get_sidebar(); ?>
+<?php get_template_part('sidebar', 'page'); ?>
 <?php get_footer(); ?>

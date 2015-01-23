@@ -1,6 +1,10 @@
 <?php
 /*
- * page.php
+Template Name: Fullwidth
+*/
+
+/*
+ * fullwidth.php
  * WP Theme "L"
  */
 ?>
@@ -10,7 +14,7 @@
 <?php get_template_part('navbar'); ?>
 
 <div id="b-content" class="row">
-  <div id="b-main" class="col-xs-12 col-sm-8 col-md-9">
+  <div id="b-main" class="col-xs-12">
 
     <!-- Post -->
     <?php if ( have_posts() ) :
@@ -37,7 +41,6 @@
       <!-- /.Post -->
     <?php endif; ?>
           
-  </div><!-- /.B-Main -->
+  </div><!-- /.Main Row -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

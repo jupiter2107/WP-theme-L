@@ -1,24 +1,20 @@
-/* ---------------------------------------------
-		sidebar.css
-		Blog Theme "L"
---------------------------------------------- */
+/*
+ * sidebar.css
+ * WP Theme "L"
+ */
 
 #b-sub-search-box {
 	padding-bottom: 10px;
 } 
-
 #wp-calendar th,td {
 	text-align: center;
 }
-
 #b-sub-archive {
 	padding-bottom: 11px;
 }
-
 #b-sub-tag {
 	padding-bottom: 5px;
 }
-
 #tag-inner a {
 	padding: 3px 5px;
 	border: 1px solid #999999;
@@ -33,7 +29,6 @@
     font-size: 90%;
     line-height: 200%;
 }
-
 #tag-inner a:hover {
 	background-color: #e1e1e1 ;
 }

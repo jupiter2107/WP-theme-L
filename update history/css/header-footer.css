@@ -1,7 +1,7 @@
-/* ---------------------------------------------
-		header-footer.css
-		Blog Theme "L"
---------------------------------------------- */
+/*
+ * header-footer.css
+ * WP Theme "L"
+ */
 
 /* header.php */
 
@@ -15,13 +15,11 @@ body {
 #b-logo {
 	text-align: right;
 }
-
 @media screen and (max-width: 768px) {
 	#b-logo {
 		text-align: center;
 	}
 }
-
 #b-logo a {
 	text-decoration: none;
 }
@@ -40,13 +38,11 @@ body {
 	margin-right: auto;
 	text-align: center;
 }
-
 @media screen and (max-width: 768px) {
 	#affiliate {
 		display: none;
 	}
 }
-
 @media screen and (min-width: 768px) {
 	#copyright {
 		padding-top: 15px;

@@ -1,7 +1,7 @@
-/* ---------------------------------------------
-		main.css
-		Blog Theme "L"
---------------------------------------------- */
+/*
+ * main.css
+ * WP Theme "L"
+ */
 
 /* index.php / single.php / page.php */
 
@@ -9,37 +9,81 @@
 	padding-bottom: 30px;	
 	line-height: 1.75;
 }
-
 @media screen and (max-width: 992px) {
 	div.p-wrapper {
 		padding-top: 15px;
 	}
 }
-
 .p-contents h1,
 .p-contents h2 {
 	border-left: 5px solid #338bd4;
 	border-bottom: 1px solid #338bd4;
 	padding: 3px 15px 3px;
 }
-
 .p-contents h3 {
 	border-left: 5px solid #32a6d4;
 	border-bottom: 1px solid #32a6d4;
 	padding: 3px 15px 3px;
 }
-
 .p-contents h4 {
 	border-left: 5px solid #32a6d4;
 	padding: 3px 15px;
 }
-
 .p-contents h5,
 .p-contents h6 {
 	border-left: 5px solid #33c1d4;
 	padding: 3px 15px;
 }
-
+.page-header h1,
+.page-header h2,
+.page-header h3,
+.page-header h4,
+.page-header h5,
+.page-header h6 {
+	border-left: 0px;
+	border-bottom: 0px;
+	padding: 0px;
+}
+h1.panel-title,
+h2.panel-title,
+h3.panel-title,
+h4.panel-title,
+h5.panel-title,
+h6.panel-title {
+	border-left: 0px;
+	border-bottom: 0px;
+	padding: 0px;
+}
+h1.list-group-item-heading,
+h2.list-group-item-heading,
+h3.list-group-item-heading,
+h4.list-group-item-heading,
+h5.list-group-item-heading,
+h6.list-group-item-heading {
+	border-left: 0px;
+	border-bottom: 0px;
+	padding: 0px;
+}
+h1.modal-title,
+h2.modal-title,
+h3.modal-title,
+h4.modal-title,
+h5.modal-title,
+h6.modal-title {
+	border-left: 0px;
+	border-bottom: 0px;
+	padding: 0px;
+}
+.caption h1,
+.caption h2,
+.caption h3,
+.caption h4,
+.caption h5,
+.caption h6 {
+	border-left: 0px;
+	border-bottom: 0px;
+	padding: 0px;
+}
 .p-thumbnail img,
 .p-contents img {
 	display: block;
@@ -47,37 +91,35 @@
 	margin-right: auto;
 	text-align: center;
 }
-
 @media screen and (min-width: 992px) {
 	.p-contents img {
 		width: 75%;
 	}
 }
-
+.fs50 {
+	font-size: 50%;
+}
+.fs75 {
+	font-size: 75%;
+}
 .fs125 {
 	font-size: 125%;
 }
-
 .fs150 {
 	font-size: 150%;
 }
-
 .fs175 {
 	font-size: 175%;
 }
-
 .fs200 {
 	font-size: 200%;
 }
-
 #navigation {
 	padding-top: 20px;
 }
-
 #navigation li {
 	font-size: 125%;
 }
-
 #navigation li>a {
 	margin-bottom: 5px;
 }

@@ -1,6 +1,10 @@
 <?php
 /*
- * page.php
+Template Name: Pagesidebar
+*/
+
+/*
+ * pagesidebar.php
  * WP Theme "L"
  */
 ?>
@@ -39,5 +43,5 @@
           
   </div><!-- /.B-Main -->
 
-<?php get_sidebar(); ?>
+<?php get_template_part('sidebar', 'page'); ?>
 <?php get_footer(); ?>

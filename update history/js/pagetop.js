@@ -1,3 +1,8 @@
+/*
+ * pagetop.js
+ * WP Theme "L"
+ */
+
 $(document).ready(function() {
 	var pagetop = $('.pagetop');
 	$(window).scroll(function () {

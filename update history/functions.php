@@ -1,18 +1,42 @@
 <?php
-/* --------------------------------------------------
-		functions.php
-		Blog Theme "L"
--------------------------------------------------- */
+/*
+ * functions.php
+ * WP Theme "L"
+ */
 
-/**************************************************************
- * アイキャッチ画像の有効化
- **/
+// User Custom Functions.
+// ** You can change this part. **
+
+// 固定ページでの自動生成タグの無効化
+
+add_filter('the_content', 'wpautop_filter', 9);
+function wpautop_filter($content) {
+    global $post;
+    $remove_filter = false;
+      
+    $arr_types = array('page'); //自動整形を無効にする投稿タイプを記述
+    $post_type = get_post_type( $post->ID );
+    if (in_array($post_type, $arr_types)) $remove_filter = true;
+      
+    if ( $remove_filter ) {
+    	remove_filter('the_content', 'wptexturize');
+    	remove_filter('the_excerpt', 'wptexturize');
+        remove_filter('the_content', 'wpautop');
+        remove_filter('the_excerpt', 'wpautop');
+    }
+      
+    return $content;
+}
+
+// Theme Functions.
+// ** Do not change above here. **
+
+// アイキャッチ画像の有効化
 
 add_theme_support( 'post-thumbnails' );
 
-/**************************************************************
- * imgタグでの width・height の無効化
- **/
+// imgタグでの width・height の無効化
+
 function remove_width_attribute( $html ) {
     $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
     return $html;
@@ -21,23 +45,86 @@ function remove_width_attribute( $html ) {
 add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
 add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
 
-/**************************************************************
- * imgタグでの Bootstrap タグの有効化
- **/
+// imgタグでの Bootstrap タグの有効化
+
 function my_image_class_filter( $classes ) {
 	return $classes . ' img-rounded img-responsive';
 }
 
 add_filter( 'get_image_tag_class', 'my_image_class_filter' );
 
-/**************************************************************
- * RSS2 フィードリンクの有効化
- **/
+// RSS2 フィードリンクの有効化
+
 add_theme_support( 'automatic-feed-links' );
 
-/**************************************************************
- * ナビゲーションで文字数を制限する
- **/
+// 投稿内オリジナルCSSの有効化
+
+add_action('admin_menu', 'custom_css_hooks');
+add_action('save_post', 'save_custom_css');
+add_action('wp_head','insert_custom_css');
+
+function custom_css_hooks() {
+	add_meta_box('custom_css', 'Custom CSS', 'custom_css_input', 'post', 'normal', 'high');
+	add_meta_box('custom_css', 'Custom CSS', 'custom_css_input', 'page', 'normal', 'high');
+}
+
+function custom_css_input() {
+	global $post;
+	echo '<input type="hidden" name="custom_css_noncename" id="custom_css_noncename" value="'.wp_create_nonce('custom-css').'" />';
+	echo '<textarea name="custom_css" id="custom_css" rows="5" cols="30" style="width:100%;">'.get_post_meta($post->ID,'_custom_css',true).'</textarea>';
+}
+
+function save_custom_css($post_id) {
+	if (!wp_verify_nonce($_POST['custom_css_noncename'], 'custom-css')) return $post_id;
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;
+	$custom_css = $_POST['custom_css'];
+	update_post_meta($post_id, '_custom_css', $custom_css);
+}
+
+function insert_custom_css() {
+	if (is_page() || is_single()) {
+		if (have_posts()) : while (have_posts()) : the_post();
+			echo '<style type="text/css">'.get_post_meta(get_the_ID(), '_custom_css', true).'</style>';
+		endwhile; endif;
+		rewind_posts();
+	}
+}
+
+// 投稿内オリジナルJavaScriptの有効化
+
+add_action('admin_menu', 'custom_js_hooks');
+add_action('save_post', 'save_custom_js');
+add_action('wp_footer','insert_custom_js');
+
+function custom_js_hooks() {
+	add_meta_box('custom_js', 'Custom JS', 'custom_js_input', 'post', 'normal', 'high');
+	add_meta_box('custom_js', 'Custom JS', 'custom_js_input', 'page', 'normal', 'high');
+}
+
+function custom_js_input() {
+	global $post;
+	echo '<input type="hidden" name="custom_js_noncename" id="custom_js_noncename" value="'.wp_create_nonce('custom-js').'" />';
+	echo '<textarea name="custom_js" id="custom_js" rows="5" cols="30" style="width:100%;">'.get_post_meta($post->ID,'_custom_js',true).'</textarea>';
+}
+
+function save_custom_js($post_id) {
+	if (!wp_verify_nonce($_POST['custom_js_noncename'], 'custom-js')) return $post_id;
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;
+	$custom_js = $_POST['custom_js'];
+	update_post_meta($post_id, '_custom_js', $custom_js);
+}
+
+function insert_custom_js() {
+	if (is_page() || is_single()) {
+		if (have_posts()) : while (have_posts()) : the_post();
+			echo '<script type="text/javascript">'.get_post_meta(get_the_ID(), '_custom_js', true).'</script>';
+		endwhile; endif;
+		rewind_posts();
+	}
+}
+
+// ナビゲーションで文字数を制限する
+
 function WS_previous_post_link($maxlen = -1, $format='&laquo; %link', $link='%title', $in_same_cat = false, $excluded_categories = '') {
 WS_adjacent_post_link($maxlen, $format, $link, $in_same_cat, $excluded_categories, true, $maxlen);
 }
@@ -78,9 +165,8 @@ $format = str_replace('%link', $link, $format);
 echo $format;
 }
 
-/**************************************************************
- * ウィジェット - オリジナルカレンダー
- **/
+// ウィジェット - オリジナルカレンダー
+
 function get_my_calendar($initial = true, $echo = true) {
 	global $wpdb, $m, $monthnum, $year, $wp_locale, $posts;
 
