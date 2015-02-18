@@ -1,0 +1,42 @@
+/* ---------------------------------------------
+		pagetop.css
+			for all pages
+--------------------------------------------- */
+
+.pagetop {
+	position: fixed;
+	bottom: 30px;
+	right: 50px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transform: scale(0.3);
+	-moz-transform: scale(0.3);
+	-ms-transform: scale(0.3);
+	-o-transform: scale(0.3);
+	transform: scale(0.3);
+	-webkit-transition: all .4s;
+	-moz-transition: all .4s;
+	-o-transition: all .4s;
+	transition: all .4s;
+}
+.pagetop a {
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-color: #333;
+	text-align: center;
+	color: #fff;
+	font-size: 24px;
+	text-decoration: none;
+	line-height: 50px;
+}
+.pagetop.show {
+	z-index: 1;
+	opacity: 1;
+	filter: alpha(opacity=100);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+}
