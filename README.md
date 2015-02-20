@@ -4,9 +4,11 @@
 
 ## Latest Update
 
-* Update Bootstrap v.3.3.2.
-* Change some code in footer.php.
-* Change rules of version notation.
+### Version Beta 0.7.0
+
+* メニューバーを Bootstrap 対応のものにしました
+* パンくずリストを追加しました
+* 他サイトでも使いやすいようにコードの一部見直しをしました
 
 ## Author
 
